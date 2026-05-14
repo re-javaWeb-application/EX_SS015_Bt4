@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Update Bulk Price</title>
+</head>
+<body>
+    <h2>Cập nhật giá hàng loạt</h2>
+    
+    <div th:if="${error != null}" th:text="${error}" style="color: red; margin-bottom: 15px;"></div>
+    <div th:if="${success != null}" th:text="${success}" style="color: green; margin-bottom: 15px;"></div>
+    
+    <form th:action="@{/update-price}" method="post">
+        <div>
+            <label>Tên danh mục:</label>
+            <input type="text" name="categoryName" required>
+        </div>
+        <br>
+        <div>
+            <label>Phần trăm giảm giá (0-100):</label>
+            <input type="number" step="0.01" name="discountPercentage" required>
+        </div>
+        <br>
+        <button type="submit">Cập nhật</button>
+    </form>
+</body>
+</html>
